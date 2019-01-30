@@ -1,20 +1,34 @@
 package com.slg.costsplitter.transaction;
 
-public class Transaction {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name="transaction")
+public class Transaction {
 	
+	@Id
+	private Long id;
 	
-	private String id;
+	@Column(name="description")
 	private String name;
+	
+	@Column(name="transaction_date")
 	private String date;
+	
+	@Column(name="trip")
 	private String trip;
-	private String payerId;
+	
+	@Column(name="payer")
+	private Long payerId;
 	
 	public Transaction() {
 		
 	}
 	
-	public Transaction(String id, String name, String date, String trip, String payerId) {
+	public Transaction(Long id, String name, String date, String trip, Long payerId) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -23,10 +37,10 @@ public class Transaction {
 		this.payerId = payerId;
 	}
 	
-	public String getId() {
+	public Long getId() {
 		return id;
 	}
-	public void setId(String id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -47,10 +61,10 @@ public class Transaction {
 	public void setTrip(String trip) {
 		this.trip = trip;
 	}
-	public String getPayerId() {
+	public Long getPayerId() {
 		return payerId;
 	}
-	public void setPayerId(String payerId) {
+	public void setPayerId(Long payerId) {
 		this.payerId = payerId;
 	}
 }

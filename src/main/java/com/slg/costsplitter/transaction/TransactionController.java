@@ -23,7 +23,7 @@ public class TransactionController {
 	}
 	
 	@RequestMapping("/transaction/{id}")
-	public Transaction getTransactionById(@PathVariable String id) {	
+	public Transaction getTransactionById(@PathVariable Long id) {	
 		return transactionService.getTransaction(id);
 	}
 	
@@ -44,7 +44,7 @@ public class TransactionController {
 	}
 	
 	@RequestMapping(method=RequestMethod.DELETE, value="/transaction/{id}" )
-	public void deleteTransaction( @PathVariable String id) {
+	public void deleteTransaction( @PathVariable Long id) {
 		transactionService.deleteTransaction( id);
 	}
 
