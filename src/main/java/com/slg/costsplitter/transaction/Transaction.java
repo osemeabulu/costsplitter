@@ -1,5 +1,7 @@
 package com.slg.costsplitter.transaction;
 
+import java.sql.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -16,19 +18,19 @@ public class Transaction {
 	private String name;
 	
 	@Column(name="transaction_date")
-	private String date;
+	private Date date;
 	
-	@Column(name="trip")
-	private String trip;
+	@Column(name="trip_id")
+	private Long trip;
 	
-	@Column(name="payer")
+	@Column(name="payer_id")
 	private Long payerId;
 	
 	public Transaction() {
 		
 	}
 	
-	public Transaction(Long id, String name, String date, String trip, Long payerId) {
+	public Transaction(Long id, String name, Date date, Long trip, Long payerId) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -49,16 +51,16 @@ public class Transaction {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		this.date = date;
 	}
-	public String getTrip() {
+	public Long getTrip() {
 		return trip;
 	}
-	public void setTrip(String trip) {
+	public void setTrip(Long trip) {
 		this.trip = trip;
 	}
 	public Long getPayerId() {
